@@ -55,8 +55,8 @@ public class LoginActivity extends AppCompatActivity {
         // Build a GoogleSignInClient with the options specified by gso.
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-        mEmailView = (EditText) findViewById(R.id.UsernameContainer);
-        mPasswordView = (EditText) findViewById(R.id.PasswordContainer);
+        mEmailView = (EditText) findViewById(R.id.Email);
+        mPasswordView = (EditText) findViewById(R.id.Password);
 
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -75,7 +75,14 @@ public class LoginActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+        Log.d("TekCrux","onStart running, checking for existing user.");
         updateUI(account);
+    }
+
+    public void onClick(View v) {
+        Log.d("TekCrux","Click captured");
+        Log.d("TekCrux","Google Intent starting...");
+        signInWithGoogle();
     }
 
     private void login() {
@@ -91,46 +98,21 @@ public class LoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
 
                 if(!task.isSuccessful()) {
-
-                    Log.d("Tekcrux", "Problem signing in..");
+                    Log.d("TekCrux", "Problem signing in..");
                     showErrorDialog("You sure you typed correctly ?");
-
                 } else {
-
                     Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                     finish();
                     startActivity(intent);
-
                 }
             }
         });
     }
 
-    public void logInUser(View v) {
-        login();
-    }
-
-    private void showErrorDialog (String msg) {
-
-        new AlertDialog.Builder(this)
-                .setTitle("!o.o")
-                .setMessage(msg)
-                .setPositiveButton(android.R.string.ok, null)
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .show();
-    }
-
-    public void logInGoogle(View v) {
-        switch (v.getId()) {
-            case R.id.sign_in_button:
-                signInWithGoogle();
-                break;
-        }
-    }
-
     public void signInWithGoogle() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
+        Log.d("TekCrux","hope it worked...");
     }
 
     @Override
@@ -146,6 +128,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
@@ -154,19 +137,28 @@ public class LoginActivity extends AppCompatActivity {
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
-            Log.w("Tekcrux", "signInResult:failed code=" + e.getStatusCode());
+            Log.w("TekCrux", "signInResult:failed code=" + e.getStatusCode());
             updateUI(null);
         }
     }
 
     private void updateUI(GoogleSignInAccount user) {
-
         if (user != null) {
             Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
             finish();
             startActivity(intent);
         } else {
-            Log.d("Telcrux","Cannot Login without user.");
+            Log.d("TekCrux","User does not exists initially. ");
         }
+    }
+
+    private void showErrorDialog (String msg) {
+        Log.d("TekCrux","oops");
+        new AlertDialog.Builder(this)
+                .setTitle("!o.o")
+                .setMessage(msg)
+                .setPositiveButton(android.R.string.ok, null)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
     }
 }

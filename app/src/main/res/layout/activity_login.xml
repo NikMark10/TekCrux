@@ -24,6 +24,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Username,Email" />
@@ -47,6 +48,7 @@
         app:layout_constraintTop_toBottomOf="@+id/UsernameContainer">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password" />
@@ -84,8 +86,6 @@
 
         android:text="@string/LogInButton"
 
-        android:onClick="logInUser"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ForgotPassword" />
@@ -118,8 +118,6 @@
 
         android:contentDescription="@string/facebookLogo"
 
-        android:onClick="logInFB"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
         app:layout_constraintTop_toBottomOf="@+id/OrLoginVia"
@@ -135,8 +133,6 @@
         android:layout_marginTop="30dp"
 
         android:contentDescription="@string/GithubLogo"
-
-        android:onClick="logInGithub"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -156,7 +152,7 @@
 
         android:contentDescription="@string/GoogleLogo"
 
-        android:onClick="logInGoogle"
+        android:onClick="onClick"
 
         app:layout_constraintEnd_toStartOf="@+id/imageView4"
         app:layout_constraintStart_toStartOf="parent"
