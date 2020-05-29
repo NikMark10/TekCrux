@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "673674616031",
+    "firebase_url": "https://tekcrux-4798c.firebaseio.com",
+    "project_id": "tekcrux-4798c",
+    "storage_bucket": "tekcrux-4798c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:673674616031:android:3aa924129d98350d8a1d6a",
+        "android_client_info": {
+          "package_name": "com.bioscope_vala.tekcrux"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "673674616031-476jhdertfid7dth9mvp0a689juib3oc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBM1zr5S8AYRDbrv4jEjg2rT1afSVkxU5o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "673674616031-476jhdertfid7dth9mvp0a689juib3oc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

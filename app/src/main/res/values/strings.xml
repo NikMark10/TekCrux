@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TekCrux</string>
+    <string name="LogInButton">Log In</string>
+    <string name="OrLogInVia">or Log in via</string>
+    <string name="ForgotPassword">Forgot Password ?</string>
+    <string name="facebookLogo">facebook Logo</string>
+    <string name="GoogleLogo">Google Logo</string>
+    <string name="GithubLogo">Github Logo</string>
+    <string name="CreateNewAccount">Don\'t have an account ? Create New.</string>
+</resources>
