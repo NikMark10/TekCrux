@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/fragment_home"
+        android:icon="@drawable/ic_home_white_24dp"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/fragment_prepare"
+        android:icon="@drawable/ic_book_white_24dp"
+        android:title="@string/prepare" />
+
+    <item
+        android:id="@+id/fragment_question_answer"
+        android:icon="@drawable/ic_question_answer_white_24dp"
+        android:title="@string/ask_doubts" />
+
+    <item
+        android:id="@+id/fragment_take_test"
+        android:icon="@drawable/ic_take_test_white_24dp"
+        android:title="@string/take_test" />
+
+    <item
+        android:id="@+id/fragment_vault"
+        android:icon="@drawable/ic_vaults_white_24dp"
+        android:title="@string/vault" />
+
+</menu>

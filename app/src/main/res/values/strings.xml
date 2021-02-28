@@ -7,4 +7,28 @@
     <string name="GoogleLogo">Google Logo</string>
     <string name="GithubLogo">Github Logo</string>
     <string name="CreateNewAccount">Don\'t have an account ? Create New.</string>
+    <string name="facebook_app_id">1110162399358338</string>
+    <string name="fb_login_protocol_scheme">fb1110162399358338</string>
+    <string name="looks_like_you_are_here_for_the_first_time">Looks like you are here for the first time !</string>
+    <string name="remember_you_cannot_login_through_your_username_you_will_have_to_login_through_your_provider_only">*Remember, you cannot login through your username. You will have to login through your provider only.</string>
+    <string name="done">Done</string>
+    <string name="your_username_here">Your Username Here</string>
+    <string name="let_s_setup_your_username">Let\'s setup your username</string>
+    <string name="logged_in_successfully">Logged in successfully</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="title_activity_bottom_navigation">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="prepare">Prepare</string>
+    <string name="ask_doubts">Ask Doubts</string>
+    <string name="take_test">Take Test</string>
+    <string name="vault">Vault</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="back">Back</string>
+
 </resources>
