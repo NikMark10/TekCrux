@@ -5,6 +5,7 @@
     android:id="@+id/ConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     android:orientation="vertical">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -19,6 +20,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
 
+        android:textColorHint="#B6B6B6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline">
@@ -28,7 +30,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
-            android:imeOptions="actionNext"/>
+            android:imeOptions="actionNext"
+            android:textColor="@color/white" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -44,6 +47,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
 
+        android:textColorHint="#B6B6B6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailContainer">
@@ -53,7 +57,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
-            android:imeOptions="actionGo"/>
+            android:imeOptions="actionGo"
+            android:textColor="#FFFFFF" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -69,6 +74,7 @@
 
         android:text="@string/ForgotPassword"
 
+        android:textColor="#B6B6B6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordContainer" />
 
@@ -103,6 +109,7 @@
 
         android:text="@string/OrLogInVia"
 
+        android:textColor="#B6B6B6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logInButton" />
@@ -117,32 +124,12 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="16dp"
+
         android:layout_marginRight="16dp"
-
         android:contentDescription="@string/GoogleLogo"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/orLoginVia" />
-
-    <com.facebook.login.widget.LoginButton
-        android:id="@+id/fb_sign_in_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:contentDescription="@string/facebookLogo"
-        android:paddingTop="16dp"
-
-        android:paddingBottom="16dp"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/google_sign_in_button" />
 
 
     <TextView
@@ -151,12 +138,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="30dp"
-
+        android:layout_marginBottom="20dp"
         android:text="@string/CreateNewAccount"
+        android:textColor="#B6B6B6"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fb_sign_in_button" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"

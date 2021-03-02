@@ -66,7 +66,6 @@ public class LoginActivity extends AppCompatActivity {
     private TextView forgotPassword;
     private TextView createNewAccount;
     private SignInButton mGoogleSignInButton;
-    private LoginButton mFBLoginButton;
     private Button logInButton;
 
     GoogleSignInClient mGoogleSignInClient;
@@ -90,29 +89,11 @@ public class LoginActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         mGoogleSignInButton = findViewById(R.id.google_sign_in_button);
-        mFBLoginButton = findViewById(R.id.fb_sign_in_button);
 
         callbackManager = CallbackManager.Factory.create();
 
         enableAllButtons();
 
-        mFBLoginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                disableAllButtons();
-                handleFacebookAccessToken(loginResult.getAccessToken());
-            }
-
-            @Override
-            public void onCancel() {
-
-            }
-
-            @Override
-            public void onError(FacebookException error) {
-
-            }
-        });
 
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
@@ -413,7 +394,6 @@ public class LoginActivity extends AppCompatActivity {
         forgotPassword.setEnabled(false);
         logInButton.setEnabled(false);
         mGoogleSignInButton.setEnabled(false);
-        mFBLoginButton.setEnabled(false);
         createNewAccount.setEnabled(false);
     }
 
@@ -423,7 +403,6 @@ public class LoginActivity extends AppCompatActivity {
         forgotPassword.setEnabled(true);
         logInButton.setEnabled(true);
         mGoogleSignInButton.setEnabled(true);
-        mFBLoginButton.setEnabled(true);
         createNewAccount.setEnabled(true);
     }
 

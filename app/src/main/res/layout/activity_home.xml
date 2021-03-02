@@ -38,17 +38,18 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigationBar"
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavigationBar"
 
-            android:background="@color/testingColor"
-            app:itemIconTint="@color/bottom_nav_item_colors"
-            app:itemTextColor="@color/bottom_nav_item_colors"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
 
-            app:menu="@menu/bottom_nav_menu" />
+                android:background="@color/black"
+                app:itemIconTint="@color/bottom_nav_item_colors"
+                app:itemTextColor="@color/bottom_nav_item_colors"
+
+                app:menu="@menu/bottom_nav_menu" />
 
         </RelativeLayout>
 
@@ -84,6 +85,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:background="#000000"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/drawer_menu" />
 

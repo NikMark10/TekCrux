@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".FirstTimeLoginActivity">
 
     <androidx.constraintlayout.widget.Guideline
@@ -18,6 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/looks_like_you_are_here_for_the_first_time"
+        android:textColor="#B6B6B6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
@@ -28,6 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/let_s_setup_your_username"
+        android:textColor="#B6B6B6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -44,6 +47,8 @@
         android:layout_marginEnd="30dp"
 
         android:layout_marginRight="30dp"
+        android:textColorHint="#B6B6B6"
+        app:hintTextColor="#B6B6B6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
@@ -61,6 +66,8 @@
             android:hint="@string/your_username_here"
             android:imeOptions="actionNext"
             android:inputType="text"
+            android:textColor="#B6B6B6"
+            android:textColorHint="#B6B6B6"
             app:met_floatingLabel="normal" />
 
     </com.google.android.material.textfield.TextInputLayout>

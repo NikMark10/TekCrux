@@ -46,7 +46,6 @@ public class HomeFragment extends Fragment {
     private DatabaseReference mReference;
     RecyclerView recyclerView;
     List<Question> mQuestionList;
-    Long numberOfQuestions = 3L;
     private StorageReference mStorageReference;
     final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     private HomeViewModel homeViewModel;
@@ -55,7 +54,7 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        ((HomeActivity) requireActivity()).getSupportActionBar();
+        ((HomeActivity) requireActivity()).getSupportActionBar().hide();
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         mQuestionList = new ArrayList<>();
 
@@ -68,8 +67,40 @@ public class HomeFragment extends Fragment {
         mReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                numberOfQuestions = dataSnapshot.child("java").getChildrenCount();
+                int numberOfQuestions = (int)dataSnapshot.child("java").getChildrenCount();
                 Log.d("TekCrux", "number of questions just counted" + numberOfQuestions);
+
+                while (numberOfQuestions> 0) {
+                    mReference = FirebaseDatabase.getInstance().getReference("Questions").child("java").child(String.valueOf(numberOfQuestions));
+                    Log.d("TekCrux", "number Of Questions" + numberOfQuestions);
+                    mReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                            profilePic = dataSnapshot.child("profileImage").getValue(String.class);
+                            username = dataSnapshot.child("CuriousUsername").getValue(String.class);
+                            points = dataSnapshot.child("CuriousPoints").getValue(String.class);
+                            date = dataSnapshot.child("DateOfCreation").getValue(String.class);
+                            questionType = dataSnapshot.child("QuestionType").getValue(String.class);
+                            questionText = dataSnapshot.child("QuestionText").getValue(String.class);
+                            answer = dataSnapshot.child("Answer").getValue(String.class);
+                            answerer = dataSnapshot.child("AnswerBy").getValue(String.class);
+                            answererPoints = dataSnapshot.child("AnswererPoints").getValue(String.class);
+                            mQuestionList.add(
+                                    new Question(profilePic, username, points, date, questionType, questionText,
+                                            answer, answerer, answererPoints)
+                            );
+                            Log.d("TekCrux", "added to list, " + username + " " + points + " " + date + " " + questionType + " " + questionText);
+                            Log.d("TekCrux", "Size of list before passing: " + mQuestionList.size());
+                            recyclerView.setAdapter(new QuestionAdapterView(getContext(), mQuestionList));
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                        }
+                    });
+                    numberOfQuestions--;
+                }
             }
 
             @Override
@@ -77,39 +108,6 @@ public class HomeFragment extends Fragment {
 
             }
         });
-        Log.d("TekCrux", "Before while loop, number of questions" + numberOfQuestions);
-
-        while (numberOfQuestions > 0) {
-            mReference = FirebaseDatabase.getInstance().getReference("Questions").child("java").child(String.valueOf(numberOfQuestions));
-            Log.d("TekCrux", "number Of Questions" + numberOfQuestions);
-            mReference.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                    profilePic = dataSnapshot.child("profileImage").getValue(String.class);
-                    username = dataSnapshot.child("CuriousUsername").getValue(String.class);
-                    points = dataSnapshot.child("CuriousPoints").getValue(String.class);
-                    date = dataSnapshot.child("DateOfCreation").getValue(String.class);
-                    questionType = dataSnapshot.child("QuestionType").getValue(String.class);
-                    questionText = dataSnapshot.child("QuestionText").getValue(String.class);
-                    answer = dataSnapshot.child("Answer").getValue(String.class);
-                    answerer = dataSnapshot.child("AnswerBy").getValue(String.class);
-                    answererPoints = dataSnapshot.child("AnswererPoints").getValue(String.class);
-                    mQuestionList.add(
-                            new Question(profilePic, username, points, date, questionType, questionText,
-                                    answer, answerer, answererPoints)
-                    );
-                    Log.d("TekCrux", "added to list, " + username + " " + points + " " + date + " " + questionType + " " + questionText);
-                    Log.d("TekCrux", "Size of list before passing: " + mQuestionList.size());
-                    recyclerView.setAdapter(new QuestionAdapterView(getContext(), mQuestionList));
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-                }
-            });
-            numberOfQuestions--;
-        }
 
         return root;
     }

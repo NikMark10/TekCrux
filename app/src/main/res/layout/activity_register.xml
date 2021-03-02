@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
 
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
@@ -56,6 +57,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
+        android:textColorHint="#B6B6B6"
+
         app:met_floatingLabel="normal"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
@@ -68,8 +71,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Full Name"
-            android:inputType="textPersonName"
             android:imeOptions="actionNext"
+            android:inputType="textPersonName"
+            android:textColorHint="#FFFFFF"
             app:met_floatingLabel="normal" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -80,6 +84,8 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
+        android:textColorHint="#B6B6B6"
 
         app:met_floatingLabel="normal"
         android:layout_marginLeft="16dp"
@@ -105,6 +111,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
+        android:textColorHint="#B6B6B6"
+
         app:met_floatingLabel="normal"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
@@ -128,6 +136,8 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
+        android:textColorHint="#B6B6B6"
 
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
