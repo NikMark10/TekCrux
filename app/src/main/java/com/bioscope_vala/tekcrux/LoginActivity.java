@@ -177,9 +177,7 @@ public class LoginActivity extends AppCompatActivity {
                         Intent intent;
                         intent = new Intent(LoginActivity.this, FirstTimeLoginActivity.class);
                         assert provider != null;
-                        if (provider.equals("facebook")) {
-                            intent.putExtra("provider", "facebook");
-                        } else {
+                        if (provider.equals("google")) {
                             intent.putExtra("provider", "google");
                         }
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -305,76 +303,6 @@ public class LoginActivity extends AppCompatActivity {
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
             Log.d("TekCrux", "signInResult:failed code=" + e.getStatusCode());
         }
-    }
-
-    //    Facebook sign in here
-    private void handleFacebookAccessToken(AccessToken token) {
-        Log.d("TekCrux", "handleFacebookAccessToken:" + token);
-        AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
-        mAuth.signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    // Sign in success, update UI with the signed-in user's information
-                    Log.d("TekCrux", "signInWithCredential facebook:success");
-                    final FirebaseUser user = mAuth.getCurrentUser();
-                    mReference = FirebaseDatabase.getInstance().getReference("Users").child(user.getUid());
-                    try {
-                        mReference.addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                String provider = dataSnapshot.child("provider").getValue(String.class);
-                                Log.d("TekCrux", "provider string: " + provider);
-                                Intent intent;
-                                if (TextUtils.isEmpty(provider)) {
-                                    intent = new Intent(LoginActivity.this, FirstTimeLoginActivity.class);
-                                    intent.putExtra("provider", "facebook");
-
-                                    HashMap<String, String> hashMap = new HashMap<>();
-                                    hashMap.put("provider", "facebook");
-                                    mReference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            if (task.isSuccessful()) {
-                                                Log.d("TekCrux","uploaded provider in database");
-                                            } else {
-                                                Log.d("TekCrux", "" + task.getException().getMessage());
-                                            }
-                                        }
-                                    });
-
-                                } else {
-                                    intent = new Intent(LoginActivity.this, HomeActivity.class);
-                                }
-                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                finish();
-                                startActivity(intent);
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError databaseError) {
-                                Log.d("TekCrux", "Didn't catch that up, mReference failed");
-                                Toast.makeText(LoginActivity.this, "Already logged in", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                    } catch (NullPointerException e) {
-                        Toast.makeText(LoginActivity.this, "Error null pointer", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(LoginActivity.this, FirstTimeLoginActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                        intent.putExtra("provider", "facebook");
-                        finish();
-                        startActivity(intent);
-                    }
-
-                } else {
-                    // If sign in fails, display a message to the user.
-                    enableAllButtons();
-                    Log.w("TekCrux", "signInWithCredential Facebook:failure", task.getException());
-                    Toast.makeText(LoginActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
-                    updateUI(null);
-                }
-            }
-        });
     }
 
     private void updateUI(FirebaseUser user) {

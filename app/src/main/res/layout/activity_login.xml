@@ -74,7 +74,7 @@
 
         android:text="@string/ForgotPassword"
 
-        android:textColor="#B6B6B6"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordContainer" />
 

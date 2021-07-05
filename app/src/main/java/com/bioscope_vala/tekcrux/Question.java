@@ -22,35 +22,27 @@ public class Question {
     public String getProfilePicUri() {
         return profilePicUri;
     }
-
     public String getUsernameCurious() {
         return usernameCurious;
     }
-
     public String getPointsCurious() {
         return pointsCurious;
     }
-
     public String getDateOfCreation() {
         return dateOfCreation;
     }
-
     public String getQuestionType() {
         return questionType;
     }
-
     public String getQuestionText() {
         return questionText;
     }
-
     public String getAnswer() {
         return answer;
     }
-
     public String getAnswerer() {
         return answerer;
     }
-
     public String getAnswererPoints() {
         return answererPoints;
     }

@@ -1,12 +1,18 @@
 package com.bioscope_vala.tekcrux.ui.home;
 
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Adapter;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -34,6 +40,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -49,6 +56,7 @@ public class HomeFragment extends Fragment {
     private StorageReference mStorageReference;
     final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     private HomeViewModel homeViewModel;
+    private EditText search_questions;
 
     String profilePic, username, points, date, questionType, questionText, answer, answerer, answererPoints;
 
@@ -109,6 +117,81 @@ public class HomeFragment extends Fragment {
             }
         });
 
+//        search_questions = root.findViewById(R.id.search_box);
+//        search_questions.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+//            @Override
+//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+//                if(actionId == EditorInfo.IME_ACTION_SEARCH) {
+//                    searchQuestion(v.toString().toLowerCase());
+//                    return true;
+//                }
+//                else
+//                    return false;
+//            }
+//        });
+
+//        search_questions.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//                searchQuestion(s.toString().toLowerCase());
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//
+//            }
+//        });
+//        return root;
+//    }
+
+//    private void searchQuestion(String s) {
+//
+//        Query query = FirebaseDatabase.getInstance().getReference("Questions").child("java")
+//                .orderByChild("QuestionText").startAt(s).endAt(s+"\uf8ff");
+//        query.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                mQuestionList.clear();
+//                Log.d("TekCrux","Running");
+//                Log.d("TekCrux","Snapshot: " + dataSnapshot.toString());
+//
+//
+//                if(dataSnapshot.getChildrenCount()==0) {
+//                    Log.d("TekCrux", "no data");
+//                }
+//                for(DataSnapshot snapshot: dataSnapshot.child("java").getChildren()) {
+//                    Log.d("TekCrux","Checking: " + snapshot.toString());
+//                }
+//                for(DataSnapshot snapshot: dataSnapshot.child("java").getChildren()){
+//                    Log.d("TekCrux","dataSnapshot " + snapshot.getValue().toString());
+//                    mQuestionList.add(new Question(
+//                            snapshot.child("CuriousProfilePic").getValue().toString() + "",
+//                            snapshot.child("CuriousUsername").getValue().toString() + "",
+//                            snapshot.child("CuriousPoints").getValue().toString() + "",
+//                            snapshot.child("DateOfCreation").getValue().toString() + "",
+//                            snapshot.child("QuestionType").getValue().toString() + "",
+//                            snapshot.child("QuestionText").getValue().toString() + "PRRRRRR",
+//                            snapshot.child("Answer").getValue().toString() + "",
+//                            snapshot.child("AnswerBy").getValue().toString() + "",
+//                            snapshot.child("AnswererPoints").getValue().toString() + ""));
+//                    recyclerView.setAdapter(new QuestionAdapterView(getContext(), mQuestionList));
+////                    if(!question.getId().equals(fuser.getUid())){
+////                        mUsers.add(user);
+////                    }
+//
+//                }
+//
+////                userAdapter = new UserAdapter(getContext(),mUsers,false);
+////                recyclerView.setAdapter(userAdapter);
+//            }
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {}
+//        });
         return root;
     }
 }

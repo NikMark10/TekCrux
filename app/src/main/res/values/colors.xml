@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorAccent">#00FF88</color>
+    <color name="colorAccent">#CE156180</color>
     <color name="colorPrimaryDark">#171717</color>
     <color name="white">#ffffff</color>
     <color name="testingColor">#373737</color>
@@ -13,7 +13,10 @@
     <color name="elevationLevel7">#24FFFFFF</color>
     <color name="elevationLevel8">#26FFFFFF</color>
     <color name="elevationLevel9">#29FFFFFF</color>
-    <color name="colorPrimary">#00FF88</color>
+    <color name="colorPrimary">#156180</color>
+    <color name="wrongAnswer">#F44336</color>
+    <color name="rightAnswer">#00FF88</color>
+
     <color name="colorWhiteTransparent">#61FFFFFF</color>
     <color name="black">#000000</color>
 

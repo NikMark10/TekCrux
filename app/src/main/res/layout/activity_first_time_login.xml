@@ -47,7 +47,8 @@
         android:layout_marginEnd="30dp"
 
         android:layout_marginRight="30dp"
-        android:textColorHint="#B6B6B6"
+        android:textColorHint="#FFFFFF"
+        app:errorTextColor="#8A0000"
         app:hintTextColor="#B6B6B6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,8 +67,7 @@
             android:hint="@string/your_username_here"
             android:imeOptions="actionNext"
             android:inputType="text"
-            android:textColor="#B6B6B6"
-            android:textColorHint="#B6B6B6"
+            android:textColor="#00FF88"
             app:met_floatingLabel="normal" />
 
     </com.google.android.material.textfield.TextInputLayout>

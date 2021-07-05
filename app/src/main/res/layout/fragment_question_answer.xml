@@ -5,21 +5,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.questionAnswers.QuestionAnswersFragment"
-    android:background="@android:color/holo_orange_light">
+    android:background="#000000">
 
-    <TextView
-        android:id="@+id/text_question_answer"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/doubtInputBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="Ask Doubts"
-        android:textAlignment="center"
-        android:textSize="20sp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/rounded_border_box"
+        android:elevation="5dp"
+
+        android:hint="Type your question here"
+        android:textColorHint="#5A5656"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center_horizontal" />
+        app:layout_constraintVertical_bias="0.2">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/doubtInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:textColor="#EFEFEF"
+            tools:ignore="InvalidId" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/post"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:text="Post"
+        android:textSize="15dp"
+        android:elevation="5dp"
+        android:textColor="#EFEFEF"
+        android:textAllCaps="false"
+        android:background="@drawable/rounded_border_post_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/doubtInputBox"
+        app:layout_constraintVertical_bias="0.06" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

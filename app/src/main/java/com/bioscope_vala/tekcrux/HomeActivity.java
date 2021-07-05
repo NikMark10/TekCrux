@@ -220,20 +220,20 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.nav_preferences:
-                leftNavFragment = new PreferencesFragment();
-
-                getSupportFragmentManager().beginTransaction().add(R.id.fragment, leftNavFragment).commit();
-                hideHamburgerNavigation();
-                hideBottomNavigation();
-                break;
-            case R.id.nav_settings:
-                leftNavFragment = new SettingsFragment();
-
-                getSupportFragmentManager().beginTransaction().add(R.id.fragment, leftNavFragment).commit();
-                hideHamburgerNavigation();
-                hideBottomNavigation();
-                break;
+//            case R.id.nav_preferences:
+//                leftNavFragment = new PreferencesFragment();
+//
+//                getSupportFragmentManager().beginTransaction().add(R.id.fragment, leftNavFragment).commit();
+//                hideHamburgerNavigation();
+//                hideBottomNavigation();
+//                break;
+//            case R.id.nav_settings:
+//                leftNavFragment = new SettingsFragment();
+//
+//                getSupportFragmentManager().beginTransaction().add(R.id.fragment, leftNavFragment).commit();
+//                hideHamburgerNavigation();
+//                hideBottomNavigation();
+//                break;
                 //**********************************************************************
             case R.id.log_out:
                 mReference = FirebaseDatabase.getInstance().getReference("Users").child(user.getUid());
@@ -241,6 +241,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         provider = dataSnapshot.child("provider").getValue(String.class);
+                        assert provider != null;
+                        Log.d("Provider", provider);
                     }
 
                     @Override
@@ -249,22 +251,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                     }
                 });
 
-                if (TextUtils.equals(provider, "google")) {
-
-                    Log.d("TekCrux", "google log out");
-                    GoogleSignInOptions gso = new GoogleSignInOptions.
-                            Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).
-                            build();
-
-                    GoogleSignInClient googleSignInClient= GoogleSignIn.getClient(getApplicationContext(),gso);
-                    googleSignInClient.signOut();
-                } else if (TextUtils.equals(provider, "facebook")) {
-                    Log.d("TekCrux", "facebook log out");
-                    LoginManager.getInstance().logOut();
-                } else {
-                    Log.d("TekCrux", "normal log out");
-                    FirebaseAuth.getInstance().signOut();
-                }
+                Log.d("TekCrux", "google log out");
+                GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).build();
+                GoogleSignInClient googleSignInClient= GoogleSignIn.getClient(getApplicationContext(),gso);
+                googleSignInClient.signOut();
+                Log.d("TekCrux", "normal log out");
+                FirebaseAuth.getInstance().signOut();
 
                 Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -291,12 +283,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                         case R.id.fragment_question_answer:
                             bottomFragment = new QuestionAnswersFragment();
                             break;
-                        case R.id.fragment_take_test:
-                            bottomFragment = new TakeTestFragment();
-                            break;
-                        case R.id.fragment_vault:
-                            bottomFragment = new VaultFragment();
-                            break;
+//                        case R.id.fragment_take_test:
+//                            bottomFragment = new TakeTestFragment();
+//                            break;
+//                        case R.id.fragment_vault:
+//                            bottomFragment = new VaultFragment();
+//                            break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment, bottomFragment).commit();
                     return true;

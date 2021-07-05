@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     tools:context=".RegisterActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/white"
+        android:background="#000000"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.Light"
         app:layout_constraintEnd_toEndOf="parent"
@@ -57,7 +58,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:textColorHint="#B6B6B6"
+        android:textColorHint="@color/colorPrimary"
 
         app:met_floatingLabel="normal"
         android:layout_marginLeft="16dp"
@@ -73,7 +74,8 @@
             android:hint="Full Name"
             android:imeOptions="actionNext"
             android:inputType="textPersonName"
-            android:textColorHint="#FFFFFF"
+            android:textColorHint="@color/colorPrimary"
+            android:textColor="#24A5DA"
             app:met_floatingLabel="normal" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -85,7 +87,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:textColorHint="#B6B6B6"
+        android:textColorHint="@color/colorPrimary"
 
         app:met_floatingLabel="normal"
         android:layout_marginLeft="16dp"
@@ -100,6 +102,8 @@
             android:layout_height="wrap_content"
             android:hint="Username"
             android:imeOptions="actionNext"
+            android:textColor="#24A5DA"
+
             android:inputType="text"
             app:met_floatingLabel="normal" />
 
@@ -111,7 +115,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:textColorHint="#B6B6B6"
+        android:textColorHint="@color/colorPrimary"
 
         app:met_floatingLabel="normal"
         android:layout_marginLeft="16dp"
@@ -126,6 +130,8 @@
             android:layout_height="wrap_content"
             android:hint="Email"
             android:imeOptions="actionNext"
+            android:textColor="#24A5DA"
+
             android:inputType="textEmailAddress"
             app:met_floatingLabel="normal" />
 
@@ -137,7 +143,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:textColorHint="#B6B6B6"
+        android:textColorHint="@color/colorPrimary"
 
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
@@ -151,6 +157,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
+            android:textColor="#24A5DA"
+
             android:inputType="textPassword"
             app:met_floatingLabel="normal" />
 
@@ -166,8 +174,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginRight="16dp"
 
-        android:background="@color/testingColor"
-        android:backgroundTint="@color/testingColor"
+        android:background="@drawable/rounded_border_post_button"
         android:text="sign up"
         android:textColor="@color/white"
 

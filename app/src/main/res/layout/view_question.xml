@@ -5,16 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
 
-    android:background="#171717"
-    android:paddingBottom="10dp">
+    android:background="#000000"
+    android:paddingBottom="15dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:elevation="10dp"
-        app:cardBackgroundColor="#171717"
+        android:elevation="20dp"
+        app:cardBackgroundColor="#0C0C0C"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -86,7 +86,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="Question ?"
-                android:textColor="#b6b6b6"
+                android:textColor="@color/colorPrimary"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/curiousProfilePic" />
@@ -107,7 +107,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
                 android:text="-Answer By"
-                android:textColor="#b6b6b6"
+                android:textColor="@color/colorPrimary"
                 app:layout_constraintEnd_toStartOf="@+id/pointsOfReplier"
                 app:layout_constraintTop_toBottomOf="@+id/answers" />
 
@@ -116,7 +116,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="(points)"
-                android:textColor="#b6b6b6"
+                android:textColor="@color/colorPrimary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/answers" />
 
